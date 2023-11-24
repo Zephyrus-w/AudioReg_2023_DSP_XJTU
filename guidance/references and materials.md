@@ -1,5 +1,5 @@
-# #指导
-# 实验总体引导
+# 指导
+## 实验总体引导
 
 [WAV格式详解](https://blog.csdn.net/tyustli/article/details/126240571?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522170079229316800213096532%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=170079229316800213096532&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-2-126240571-null-null.142%5Ev96%5Epc_search_result_base8&utm_term=wav&spm=1018.2226.3001.4187)
 
@@ -8,7 +8,7 @@
 [语音识别概述2](https://blog.csdn.net/gongdiwudu/article/details/122929191?ops_request_misc=&request_id=&biz_id=102&utm_term=%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-122929191.142%255Ev96%255Epc_search_result_base8&spm=1018.2226.3001.4187)
 
 
-# 分类模型
+## 分类模型
 
 [朴素贝叶斯](https://blog.csdn.net/DreamWendy/article/details/121594897?ops_request_misc=%25257B%252522request%25255Fid%252522%25253A%252522170079268416800225588706%252522%25252C%252522scm%252522%25253A%25252220140713.130102334..%252522%25257D&request_id=170079268416800225588706&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-121594897-null-null.142%255Ev96%255Epc_search_result_base8&utm_term=%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF&spm=1018.2226.3001.4187)
 
@@ -21,7 +21,7 @@
 [多层感知机](https://blog.csdn.net/qq_53396586/article/details/124828023?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522170079287616800222854793%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=170079287616800222854793&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-124828023-null-null.142%5Ev96%5Epc_search_result_base8&utm_term=多层感知机&spm=1018.2226.3001.4187)
 
 
-# 频率分析
+## 频率分析
 
 [FFT计算](https://blog.csdn.net/RockHill_001/article/details/127498135?ops_request_misc=&request_id=&biz_id=102&utm_term=fft%20python&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-127498135.nonecase&spm=1018.2226.3001.4187)
 
