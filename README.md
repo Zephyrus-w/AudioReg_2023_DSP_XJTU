@@ -6,6 +6,6 @@ The project includes three subtasks: speech recognition based on **time domain**
 
 The "**dataset**" folder contains **17 .wav files** sampled from _7 people_, each pronouncing the _ten numbers from 0 to 9_.
 
-The "**Guidance**" folder contains material taken from the Internet (mainly the Chinese Internet).
+The "**guidance**" folder contains material taken from the Internet (mainly the Chinese Internet).
 
 Three tasks corresponds to different folders.
