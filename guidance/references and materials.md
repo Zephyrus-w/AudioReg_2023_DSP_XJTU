@@ -7,6 +7,8 @@
 
 [语音识别概述2](https://blog.csdn.net/gongdiwudu/article/details/122929191?ops_request_misc=&request_id=&biz_id=102&utm_term=%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-122929191.142%255Ev96%255Epc_search_result_base8&spm=1018.2226.3001.4187)
 
+[Python处理wav文件](https://zhuanlan.zhihu.com/p/588642340?utm_id=0)
+
 
 ## 分类模型
 
