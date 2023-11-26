@@ -1,17 +1,15 @@
-import soundfile as sf
 import matplotlib.pyplot as plt
 import numpy as np
-
+import soundfile as sf
 
 def average(list, start, length):#注意这里算的是绝对值
     sum = 0
     for i in range(length):
         sum += abs(list[start + i])
     return sum / length
+def get_split_point(wavsignal):#和原来的split不完全相同
 
-    
-def signal_split(wavsignal):
-
+    split_points=[]
     # 单通道音频
     length = wavsignal.shape[0]
 
@@ -38,6 +36,7 @@ def signal_split(wavsignal):
                         processed_signals[number].append(wavsignal[index])
 
                     print(f"数字{number}已完成采集，其长度为{k-i}")
+                    split_points.append((i, k))
                     i=k
                     number=number+1
                     break
@@ -49,7 +48,7 @@ def signal_split(wavsignal):
                         processed_signals[number].append(wavsignal[index])
                     
                     print(f"数字{number}已完成采集，其长度为{k-i}")
-                    
+                    split_points.append((i, k))
                     number=number+1
                     i=k
                     break
@@ -57,11 +56,29 @@ def signal_split(wavsignal):
                 k+=1  
         i+=1
                             
-    return processed_signals
+    return split_points
 
-all_processed = [[[] for _ in range(10)] for _ in range(17)]
-for i in range(0,17):
-    wavsignal,rt= sf.read(f'dataset/original/original_{i+1}.wav')
-    all_processed[i]=signal_split( wavsignal )
-    print(f'第{i+1}个文件已经成功转化。')
 
+
+# 加载音频文件
+filename = 'dataset/original/original_4.wav'
+wavsignal, samplerate = sf.read(filename)
+
+# 执行分割
+split_points = get_split_point(wavsignal)
+
+# 绘制波形图
+plt.figure(figsize=(12, 6))
+plt.plot(wavsignal, label='Waveform')
+plt.xlabel('Samples')
+plt.ylabel('Amplitude')
+
+# 标记分割点
+for i, k in split_points:
+    plt.axvline(x=i, color='r', linestyle='--', label='Start' if i == split_points[0][0] else "")
+    plt.axvline(x=k, color='g', linestyle=':', label='End' if k == split_points[0][1] else "")
+
+# 添加图例
+plt.legend()
+plt.title('Waveform with Split Points')
+plt.show()

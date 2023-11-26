@@ -10,7 +10,7 @@ def average(list, start, length):#注意这里算的是绝对值
 以下请修改文件名
 '''
 # 读取音频文件
-wavsignal, rt = sf.read('dataset/original/original_2.wav')
+wavsignal, rt = sf.read('dataset/original/original_9.wav')
 # rt是采样频率，wavsignal.shape[0]存储了音频的长度
 
 # 单通道音频
