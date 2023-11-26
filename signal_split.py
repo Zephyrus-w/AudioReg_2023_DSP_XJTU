@@ -1,5 +1,7 @@
 import soundfile as sf
 import matplotlib.pyplot as plt
+import numpy as np
+
 
 def average(list, start, length):#注意这里算的是绝对值
     sum = 0
@@ -20,7 +22,7 @@ def signal_split(wavsignal):
     number=0
     i=0
     while( i<length and number < 10 ):
-        if wavsignal[i]>=0.02 and average(wavsignal, i, 1000)>0.05:
+        if (wavsignal[i]>=0.02 and average(wavsignal, i, 1000)>0.05):
 
             '''
             这里说明已经进入了有效数字阶段，进入的坐标是i。
@@ -58,6 +60,8 @@ def signal_split(wavsignal):
     return processed_signals
 
 all_processed = [[[] for _ in range(10)] for _ in range(17)]
-for i in range(17):
-    all_processed[i]=signal_split(sf.read(f'dataset/original/original_{i}.wav'))
+for i in range(1,18):
+    wavsignal,rt= sf.read(f'dataset/original/original_{i}.wav')
+    all_processed[i]=signal_split( wavsignal )
+    print(f'第{i}个文件已经成功转化。')
 
