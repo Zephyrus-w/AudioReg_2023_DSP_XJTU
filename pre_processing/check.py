@@ -4,7 +4,7 @@ import soundfile as sf
 import os
 
 # 构建数据文件的相对路径
-data_file_path = os.path.join(os.path.dirname(__file__), '..', 'dataset','original', 'original_1.wav')
+data_file_path = os.path.join(os.path.dirname(__file__), '..', 'dataset','original', 'original_9.wav')
 
 # 确保路径是绝对路径
 absolute_data_file_path = os.path.abspath(data_file_path)
@@ -27,7 +27,7 @@ def get_split_point(wavsignal):#和原来的split不完全相同
     number=0
     i=0
     while( i<length and number < 10 ):
-        if (wavsignal[i]>=0.02 and average(wavsignal, i, 1000)>0.03):
+        if ((wavsignal[i]>=0.02 and average(wavsignal, i, 2000)>0.025) or ( number==5 and abs(wavsignal[i])>=0.013 and average(wavsignal, i, 5000)>0.013 )):
 
             '''
             这里说明已经进入了有效数字阶段，进入的坐标是i。
@@ -38,7 +38,7 @@ def get_split_point(wavsignal):#和原来的split不完全相同
             while(k<length):
                 #第一种情况，k已经很大，以至于不能够统计接下来的1000个样本，此时认为k已经够大了，就是这个数字的结尾。
                 #之后要做的就是结束整个循环
-                if (k+1000>=length):
+                if (k+5000>=length):
                     for index in range(i,k):
                         processed_signals[number].append(wavsignal[index])
 
@@ -48,7 +48,7 @@ def get_split_point(wavsignal):#和原来的split不完全相同
                     number=number+1
                     break
 
-                elif( abs(wavsignal[k])<0.02 and average( wavsignal, k, 1000) < 0.01):
+                elif( (abs(wavsignal[k])<0.02 and average( wavsignal, k, 5000) < 0.01) or (number==5 and abs(wavsignal[k])<0.005 and average( wavsignal, k, 5000) < 0.005)):
                 #第二种情况，k还不够大，则我们要在样本够小的情况下，统计之后的1000个样本，如果这些样本的绝对值够小，那么则认为k已经是结尾。
                     
                     for index in range(i,k):
