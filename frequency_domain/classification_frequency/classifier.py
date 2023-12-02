@@ -6,7 +6,7 @@ import joblib
 
 window = input("Please input your ideal window: hanning or hamming")
 if window == 'hanning':
-    data_path = os.path.join(os.path.dirname(__file__), '..', 'frequency_eigenvector_hamming.json')
+    data_path = os.path.join(os.path.dirname(__file__), '..', 'frequency_eigenvector_delta.json')
     abosulute_data_path = os.path.abspath(data_path)
 elif window == 'hamming':
     data_path = os.path.join(os.path.dirname(__file__), '..', 'frequency_eigenvector.json')
