@@ -59,17 +59,5 @@ def signal_split(wavsignal):
                             
     return processed_signals
 
-all_processed = [[[] for _ in range(10)] for _ in range(17)]
 
-
-for i in range(0,17):
-
-    # 构建数据文件的相对路径
-    data_file_path = os.path.join(os.path.dirname(__file__), '..', 'dataset','original', f'original_{i+1}.wav')
-    # 确保路径是绝对路径
-    absolute_data_file_path = os.path.abspath(data_file_path)
-
-    wavsignal,rt= sf.read(absolute_data_file_path)
-    all_processed[i]=signal_split( wavsignal )
-    print(f'第{i+1}个文件已经成功转化。')
 
