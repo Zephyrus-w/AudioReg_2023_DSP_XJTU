@@ -3,6 +3,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from dataloader import dtw_distance
 from sklearn.metrics import accuracy_score
 import numpy as np
+import joblib
 
 
 def dtw_knn_predict(X_train, y_train, X_test, k):
@@ -39,6 +40,7 @@ def dtw_knn_classifier(data, k):
     y_test = [float(item) for item in y_test]
 
     predictions, top3_classes = dtw_knn_predict(X_train, y_train, X_test, k)
+    joblib.dump((X_train, y_train), 'dtw_knn_training_data.pkl')
     accuracy = accuracy_score(y_test, predictions)
 
     hit_at_3 = np.mean([y_test[i] in top3_classes[i] for i in range(len(y_test))])

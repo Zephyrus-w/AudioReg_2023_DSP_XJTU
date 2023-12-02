@@ -3,9 +3,15 @@ from fisher import fisher_discriminant
 from decision_tree import decision_tree_classifier
 from SVM import SVM
 from dataloader import x_y_loader
+import os
+import json
 
-file_path = 'time_domain_vectors.csv'
-X_train, y_train, X_test, y_test = x_y_loader( file_path )
+data_path = os.path.join(os.path.dirname(__file__), '..', 'addHamming','Vector_divide.json')
+abosolute_data_path = os.path.abspath(data_path)
+with open(abosolute_data_path , 'r') as file:
+    data_hamming = json.load(file)
+
+X_train, y_train, X_test, y_test = x_y_loader(data_hamming)
 
 def classify(X_train, y_train, X_test, y_test, algorithm):
 
@@ -23,7 +29,6 @@ def classify(X_train, y_train, X_test, y_test, algorithm):
 
 algorithm = input("请输入方法选择\n朴素贝叶斯：1\nFisher线性判别：2\n决策树：3\n支持向量机：4\n")
 print("正在进行分类计算，请稍后...\n")
-print("分类结果为：\n")
 predictions, accuracy, hit_3= classify(X_train, y_train, X_test, y_test, algorithm)
 print("正确结果为：\n")
 print(y_test)

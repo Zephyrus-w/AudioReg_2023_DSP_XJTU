@@ -1,12 +1,13 @@
 import numpy as np
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.metrics import accuracy_score
+import joblib
 
 def fisher_discriminant(X_train, y_train, X_test, y_test):
     # 模型训练
     model = LinearDiscriminantAnalysis()
     model.fit(X_train, y_train)
-
+    joblib.dump(model, 'fisher_model.pkl')
     # 模型测试
     predictions = model.predict(X_test)
 

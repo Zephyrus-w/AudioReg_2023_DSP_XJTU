@@ -1,12 +1,14 @@
 import numpy as np
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score
+import joblib
+
 
 def bayesian(X_train, y_train, X_test, y_test):
     # 模型训练
     model = GaussianNB()
     model.fit(X_train, y_train)
-
+    joblib.dump(model, 'bayesian_model.pkl')
     # 获取测试集上每个类别的概率
     probabilities = model.predict_proba(X_test)
 

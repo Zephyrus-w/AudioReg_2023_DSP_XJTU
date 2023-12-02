@@ -1,12 +1,14 @@
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
+import joblib
 
 def decision_tree_classifier(X_train, y_train, X_test, y_test):
 
     # 模型训练
     model = DecisionTreeClassifier()
     model.fit(X_train, y_train)
+    joblib.dump(model, 'decision_tree_model.pkl')
 
     # 模型测试
     predictions = model.predict(X_test)

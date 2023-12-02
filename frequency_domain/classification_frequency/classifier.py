@@ -2,9 +2,17 @@ from dtw_knn_classifier import dtw_knn_classifier
 import json
 import os
 import numpy as np
+import joblib
 
-data_path = os.path.join(os.path.dirname(__file__), '..', 'frequency_eigenvector.json')
-abosulute_data_path = os.path.abspath(data_path)
+window = input("Please input your ideal window: hanning or hamming")
+if window == 'hanning':
+    data_path = os.path.join(os.path.dirname(__file__), '..', 'frequency_eigenvector_hamming.json')
+    abosulute_data_path = os.path.abspath(data_path)
+elif window == 'hamming':
+    data_path = os.path.join(os.path.dirname(__file__), '..', 'frequency_eigenvector.json')
+    abosulute_data_path = os.path.abspath(data_path)
+
+
 with open(abosulute_data_path, 'r') as file:
     data = json.load(file)
 

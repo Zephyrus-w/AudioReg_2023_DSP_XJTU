@@ -1,11 +1,13 @@
 import numpy as np
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
+import joblib
 
 def SVM(X_train, y_train, X_test, y_test):
     # 模型训练，启用概率估计
     model = SVC(probability=True)
     model.fit(X_train, y_train)
+    joblib.dump(model, 'SVM_model.pkl')
 
     # 模型测试
     predictions = model.predict(X_test)
