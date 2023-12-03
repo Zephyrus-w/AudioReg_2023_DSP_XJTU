@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import os
 
 # 构建数据文件的相对路径
-data_file_path = os.path.join(os.path.dirname(__file__), '..', 'dataset','original', 'original_1.wav')
+data_file_path = os.path.join(os.path.dirname(__file__), '..', 'dataset','original', 'original_15.wav')
 
 # 确保路径是绝对路径
 absolute_data_file_path = os.path.abspath(data_file_path)

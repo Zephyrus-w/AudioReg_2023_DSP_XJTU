@@ -46,7 +46,7 @@ for i in range(17):  # 遍历每个说话者
 
 '''现在的all_processed是一个三维数组，第一维是说话者，第二维是数字，第三维是数字的音频数据。需要统计最大的音频长度，然后将所有音频数据补齐到这个长度。
 所以要设置一个数组，这个数组是10x17x「(max_length/frame_length)向上取整」xframe_length'''
-
+'''
 max_length=0
 for i in range(17):
     for j in range(10):
@@ -78,20 +78,23 @@ for i in range(17):
             framed_processed_signal_hamming[j][i][k] = hamming_window * frame
             framed_processed_signal_hanning[j][i][k] = hanning_window * frame
 
+            '''
 # 将 NumPy 数组转换为普通列表
 
-
+'''
 framed_processed_signal_list = numpy_to_list(framed_processed_signal)
 framed_processed_signal_hamming_list = numpy_to_list(framed_processed_signal_hamming)
 framed_processed_signal_hanning_list = numpy_to_list(framed_processed_signal_hanning)
-
+'''
 
 # 现在 framed_processed_signal_hamming_list 是一个普通的嵌套列表，可以被序列化为 JSON
 with open('data_unframed.json', 'w') as file:
     json.dump(all_processed, file)
+    '''
 with open('data_framed.json', 'w') as file:
     json.dump(framed_processed_signal_list, file)
 with open('data_hamming.json', 'w') as file:
     json.dump(framed_processed_signal_hamming_list, file)
 with open('data_hanning.json', 'w') as file:
     json.dump(framed_processed_signal_hanning_list, file)
+    '''
